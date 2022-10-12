@@ -20,7 +20,7 @@ jobs:
         env:
             SSH_KEY: ${{ secrets.SERVER_SSH_KEY }}
             IP_ADDR: ${{ secrets.IP_ADDR }}
-            USERNAME: ${{ secrets.SERVER_USER }}
+            USERNAME: ${{ secrets.SERVER_USER }} 
       - name: "Install tools "
         run: ssh ${{ secrets.SERVER_USER }}@${{ secrets.IP_ADDR }} "sudo apt-get update && sudo apt-get install -y docker.io"
       - name: "Update repository"
