@@ -10,11 +10,11 @@ jobs:
           mkdir -p ~/.ssh
           echo "$SSH_KEY" > ~/.ssh/app
           chmod 600 ~/.ssh/app
+          export HOST_DB=$HOST_DB
           cat >>~/.ssh/config <<END
           Host $IP_ADDR
             HostName $IP_ADDR
             User $USERNAME
-            HOST_DB $HOST_DB
             IdentityFile ~/.ssh/app
             StrictHostKeyChecking no
           END
