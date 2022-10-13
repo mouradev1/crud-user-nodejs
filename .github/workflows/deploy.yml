@@ -29,4 +29,4 @@ jobs:
       - name: "Deploy App "
         run: ssh ${{ secrets.SERVER_USER }}@${{ secrets.IP_ADDR }} "docker rm -f crud-app && cd ${{ github.event.repository.name }} && sudo docker build -t crud-app ."
       - name: "Run App"
-        run: ssh ${{ secrets.SERVER_USER }}@${{ secrets.IP_ADDR }} "docker run -d --name crud-app -e HOST_DB=${{ secrets.HOST_DB }} -p 3000:3000 crud-app"
+        run: ssh ${{ secrets.SERVER_USER }}@${{ secrets.IP_ADDR }} "docker run -d --name crud-app -p 3000:3000 crud-app"
