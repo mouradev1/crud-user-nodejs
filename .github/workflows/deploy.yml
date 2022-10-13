@@ -27,4 +27,4 @@ jobs:
       - name: "Update repository"
         run: ssh ${{ secrets.SERVER_USER }}@${{ secrets.IP_ADDR }} "rm -rf ${{ github.event.repository.name }}; git clone --depth=1  git@github.com:mouradev1/crud-user-nodejs.git"
       - name: "Deploy new version "
-        run: ssh ${{ secrets.SERVER_USER }}@${{ secrets.IP_ADDR }} "docker rm -f crud-app && cd ${{ github.event.repository.name }} && sudo docker build -t crud-app . && docker run -d --name -e HOST_DB=${{ secrets.HOST_DB }} crud-app -p 3000:3000 crud-app"
+        run: ssh ${{ secrets.SERVER_USER }}@${{ secrets.IP_ADDR }} "docker rm -f crud-app && cd ${{ github.event.repository.name }} && sudo docker build -t crud-app . && docker run -d --name crud-app -e HOST_DB=${{ secrets.HOST_DB }} -p 3000:3000 crud-app"
